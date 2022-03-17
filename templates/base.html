@@ -9,15 +9,23 @@
 </head>
 <body>
 <nav>
-    <div class="logo">
-        <a href="{% url 'index' %}">BASE</a>
+    <div class="toplinks">
+        <div class="logo">
+            <b>
+                <a href="{% url 'index' %}">BASE</a>
+            </b>
+        </div>
+        <div class="links">
+            <a href="{% url 'mail_list' %}">Mail list</a>
+        </div>
     </div>
+
     <div>
         {% if request.user.is_authenticated %}
             {{ user.username }}
             <button>Exit</button>
-            {% else %}
-             <button>Login</button>
+        {% else %}
+            <button>Login</button>
         {% endif %}
     </div>
 </nav>

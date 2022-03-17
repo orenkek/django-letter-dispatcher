@@ -1,23 +1,36 @@
-nav{
+nav {
     background: whitesmoke;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-nav .logo{
+nav .logo {
     font-size: 24px;
     font-family: sans-serif;
 }
 
-body{
+body {
     margin: 0;
     padding: 0;
 }
 
-.mail-list{
+.mail-list {
     list-style: none;
     padding: 0;
     margin: 10px 5px 10px 5px;
 
+}
+
+.toplinks {
+    display: flex;
+    align-items: center;
+}
+
+.toplinks a{
+    margin: 0 10px 0 10px;
+}
+
+.base-content{
+    margin: 10px;
 }
