@@ -1,10 +1,19 @@
+{#{% load static %}#}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Letters dispatcher</title>
+{#    <link rel="stylesheet" href="{% static 'base.css' %}">#}
 </head>
 <body>
+<nav>
+    <div class="logo">
+        <a href="{% url 'index' %}">BASE</a>
+    </div>
+</nav>
+
 {% block content %}
 {% endblock content %}
 </body>
