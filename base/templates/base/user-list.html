@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for object in object_list %}
+        <div>
+            <ul class="mail-list">
+                <li>Name: {{ object.name }}</li>
+                <li>Email: {{ object.email }}</li>
+            </ul>
+        </div>
+    {% endfor %}
+
+{% endblock content %}
