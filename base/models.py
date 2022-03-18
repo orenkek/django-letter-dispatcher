@@ -5,7 +5,7 @@ from django.db import models
 
 class MailList(models.Model):
     name = models.CharField(max_length=90, null=True)
-    email = models.EmailField()
+    email = models.EmailField(unique=True)
 
     def __str__(self):
         return self.email
