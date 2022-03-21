@@ -1,5 +1,7 @@
+import datetime
+
 from django.conf import settings
-from django.core.mail import send_mail
+from django.core.mail import send_mail, EmailMultiAlternatives
 from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
 from django.urls import reverse_lazy
@@ -32,9 +34,14 @@ class MailListFormView(FormView):
 
 class SendEmail(View):
     def get(self, request):
+        subject, from_email, to_email = 'Hello', settings.EMAIL_HOST_USER, settings.EMAIL_HOST_USER
+        text_message = render_to_string('email/message.html', {'username': 'Anuarcheck', 'date': datetime.datetime.now()})
+        msg = EmailMultiAlternatives(subject, text_message, from_email, [to_email, ], )
+        msg.send()
+
         # text_message = render_to_string(
         #     'account/managers/mail_manager/create_delivery_lot_order.html',
         #     dict(order=order, path_link='sold-orders', ))
 
-        send_mail('Greetings!', 'temp', settings.EMAIL_HOST_USER, [settings.EMAIL_HOST_USER, ], )
+        # send_mail('Greetings!', 'temp', settings.EMAIL_HOST_USER, [settings.EMAIL_HOST_USER, ], )
         return redirect('index')
