@@ -126,3 +126,21 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static/styles'),
 ]
+
+
+
+# EMAIL_HOST = 'smtp.yandex.ru'
+
+
+# EMAIL_HOST_USER = 'AnuarSab@yandex.ru'
+# EMAIL_HOST_PASSWORD = 'xpfimqfzznjupkts'
+
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+# EMAIL_PORT = 465
+
+EMAIL_HOST_USER = 'sabirovanuar@gmail.com'
+EMAIL_HOST_PASSWORD = 'jmrpkwxwxflnbvxm'
+# EMAIL_HOST_PASSWORD = 'AnuarSabirov1999522'

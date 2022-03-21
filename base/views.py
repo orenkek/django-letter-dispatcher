@@ -1,9 +1,12 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.urls import reverse, reverse_lazy
+from django.conf import settings
+from django.core.mail import send_mail
+from django.shortcuts import render, redirect
+from django.template.loader import render_to_string
+from django.urls import reverse_lazy
 from django.views.generic import View, ListView, FormView
-from .models import MailList
+
 from .forms import MailListForm
+from .models import MailList
 
 
 # Create your views here.
@@ -25,3 +28,13 @@ class MailListFormView(FormView):
     def form_valid(self, form):
         form.save()
         return super().form_valid(form)
+
+
+class SendEmail(View):
+    def get(self, request):
+        # text_message = render_to_string(
+        #     'account/managers/mail_manager/create_delivery_lot_order.html',
+        #     dict(order=order, path_link='sold-orders', ))
+
+        send_mail('Greetings!', 'temp', settings.EMAIL_HOST_USER, [settings.EMAIL_HOST_USER, ], )
+        return redirect('index')
